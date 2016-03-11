@@ -7,7 +7,7 @@ var comment = new Schema({
   userId: {type: String, required: true},
   title: {type: String, required: true},
   content: {type: String, required: true},
-  mark: {type: Number, min: 1, max: 5 required: true},
+  mark: {type: Number, min: 1, max: 5, required: true},
   createAt: {type: Date, default: Date.now}
 });
 

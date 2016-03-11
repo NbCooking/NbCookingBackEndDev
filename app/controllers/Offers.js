@@ -5,7 +5,7 @@ var Offer = mongoose.model('Offer');
 
 var Offers = {
   getHome: function(req, res) {
-    
+    res.render('index', {title: 'NbCooking'});
   },
   search: function(req, res) {
     
