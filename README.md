@@ -1,4 +1,4 @@
-# NbCooking first web version
+# NbCooking
 
 ## Test version
 An online version is available on [this link](http://nbcooking.noip.me).
