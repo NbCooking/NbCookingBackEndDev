@@ -21,9 +21,5 @@ We offer the neighbours to sell or purchase one or more meals, depending on thei
 - HTML5
 - CSS3
 - Javascript / jQuery / NodeJS / Express
-<<<<<<< HEAD
 - MongoDb
 - Google Maps API
-=======
-- MongoDb
->>>>>>> 13c6d4a335f4dee6ecbbfa1b7e2b731d11f29d9e
