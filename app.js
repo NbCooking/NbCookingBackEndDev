@@ -64,5 +64,9 @@ app.use(function(err, req, res, next) {
   });
 });
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/nbcooking', function(err) {
+  if (err) { throw err; }
+});
 
 module.exports = app;
