@@ -23,24 +23,20 @@ var Users = {
     subscribe: function(req, res) {
         
         
-        var userDatas ={
+        var userDatas = new User ({
         email: req.body.email,
         password: req.body.password,
         age: req.body.age,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         address: req.body.address        
-        };
+        });
         
-        
-        var user = new User(userDatas);
-        test = this.User.find({id: user._id}).select(email);
-        user.save();
-        tests = this.User.find({id: user._id}).select(email);
-        res.render('users/subscribed', {user: tests, datas: test});
+        userDatas.save(function(err, userDatas) {
+        if (err) return console.error(err);
+        console.dir(userDatas);
+        });
     }
-    
-        
     
 };
 module.exports = Users;
