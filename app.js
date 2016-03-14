@@ -15,9 +15,7 @@ var cart = require('./app/routes/cart');
 var app = express();
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/nbcooking', function(err) {
-  if (err) { throw err; }
-}); 
+mongoose.connect('mongodb://localhost:27017/nbcooking');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app/views'));

@@ -1,10 +1,67 @@
-extends ../layout
 
-block content
-    form(action='/', method='POST')
-                  pre
 
-                       input(type='text',id="Address", name='addr')
-                       br
-                       br
-                       input(type='submit', value='Send!')
+doctype html
+html
+  head
+    // Set charset
+    link(rel='stylesheet', href='/stylesheets/app_web.css')
+    meta(charset='utf-8')
+    // Title
+    link(href='https://fonts.googleapis.com/css?family=Roboto:400,300', rel='stylesheet', type='text/css')
+    title NbCooking - Homepage
+    // Import jQuery and javascript
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+    script(src='/javascripts/app.js')
+  body
+    header
+      img(src='/images/logo.png', alt='NbCookingLogo')
+      a(href='index.html') NbCooking
+    .firstview
+      .search
+        input(type='text', placeholder='Entrez votre adresse...')
+        button(type='button', href='search.html') Faites votre choix
+      #gonext
+        img(src='/images/arrow.png')
+    .secondview
+      .boxes
+        .box
+          .title Prix
+          img(src='/images/i_price.png')
+          .description
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        .box
+          .title Proximité
+          img(src='/images/i_distance.png')
+          .description
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        .box
+          .title Géolocalisation
+          img(src='/images/i_geolocalisation.png')
+          .description
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        .box
+          .title Contact
+          img(src='/images/i_human.png')
+          .description
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        .box
+          .title Filtres
+          img(src='/images/i_filter.png')
+          .description
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        .box
+          .title Horaires
+          img(src='/images/i_time.png')
+          .description
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        .clear
+    footer
+      .browse
+        h3 BROWSE:
+        a(href='index.html') Accueil
+        a(href='search.html') Recherche
+        a(href='#') Contact
+        a(href='#') Inscription
+        a(href='#') Connexion
+        a(href='#') Mon compte
+      p.copyright Copyright © 2016 NbCooking. All 
