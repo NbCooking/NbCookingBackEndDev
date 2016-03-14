@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+    form(action='/subscribe', method='POST')
+        pre
+        label Email 
+        input(type='text',name='email')
+        br
+        label Password  
+        input(type='text', name='password')
+        br
+        label Age   
+        input(type='text', name='age')
+        br
+        label Firstname 
+        input(type='text', name='firstName')
+        br
+        label Lastname  
+        input(type='text', name='lastName')
+        br
+        label Address   
+        input(type='text', name='address')
+        br
+        br
+        input(type='submit', value='Valider')

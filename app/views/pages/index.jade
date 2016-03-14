@@ -1,5 +1,10 @@
 extends ../layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    form(action='/', method='POST')
+                  pre
+
+                       input(type='text',id="Address", name='addr')
+                       br
+                       br
+                       input(type='submit', value='Send!')
