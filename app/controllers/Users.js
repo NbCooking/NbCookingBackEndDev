@@ -1,5 +1,6 @@
 require('../models/User');
 
+
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
@@ -49,9 +50,6 @@ User.findOne({email: req.body.email}, function(err, user){
     }
 });
 
-        
-        
-                
         
         
     }           
