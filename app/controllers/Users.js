@@ -53,7 +53,7 @@ var Users = {
                         var test = User.findOne({_id: userDatas._id}, function(err, data){console.log(data.age);});
                         User.findById(userDatas._id, function(err, user){
                             if(err) throw err;
-                            res.render('users/subscribed', {user: user.firstName, datas: user.email});
+                            res.render('users/subscribed', {user: user.firstName, datas: user.createAt});
                     
                     });
                 });

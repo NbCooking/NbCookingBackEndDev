@@ -44,7 +44,7 @@ var Offers = {
                     };
                     listDist = list.slice(0,-1);
                     //var distance = parsedBody['rows'][0]['elements'][0]['distance']['value'];
-                    res.render('offers/offers', {title: 'Offers', test: listDist, datas: parsedBody});
+                    res.render('offers/offers', {title: 'Offers', test: listDist});
                     });
             });
       });
@@ -59,8 +59,26 @@ var Offers = {
     
   },
   addOfferId: function(req, res) {
+      
+      var offerDatas = new Offer ({
+            cookId: req.body.cookId,
+            title: req.body.title,
+            description: req.body.description,
+            price: req.body.price,
+            picture: req.body.picture,
+            createAt: req.body.createAt,
+            dateOfDeal: req.body.dateOfDeal
+        });
+        offerDatas.save(function(err, user){
+            if(err){console.log(err)}
+            //console.log(user);
+        });
+
+  },
     
-  }
+    addOffer: function(req, res){
+        res.render('/offers/addOffer');m
+    }
 };
 
 module.exports = Offers;

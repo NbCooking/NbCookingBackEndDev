@@ -5,6 +5,7 @@ var comments = require('../controllers/Comments');
 
 /* GET */
 router.get('/:id(\\d+)', offers.getOfferId);
+router.get('/offer', offers.addOffer);
 
 /* POST */
 router.post('/', offers.addOfferId);

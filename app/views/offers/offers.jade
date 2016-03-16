@@ -1,7 +1,65 @@
-extends ../layout
-block content
-  h1= title
-  p Welcome to #{title}
-  p You just posted #{test}
-  br
-  p Output : #{datas}
+doctype html
+html
+  head
+    // Set charset
+    meta(charset='utf-8')
+    // Title
+    title NbCooking - Résultats
+    // Import css and fonts
+    link(rel='stylesheet', href='stylesheets/app.css', media='only screen and (max-device-width: 768px)', type='text/css')
+    link(rel='stylesheet', href='stylesheets/app_web.css', media='only screen and (min-device-width: 768px)', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Roboto:400,300', rel='stylesheet', type='text/css')
+    // Import jQuery and javascript
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+    script(src='javascripts/app.js')
+  body
+    header
+      img(src='images/logo.png', alt='NbCookingLogo')
+      a(href='index.html') NbCooking
+    .preview(style='background-image: url(images/offer1.jpg);')
+    .results_bar
+      .title Résultats près de chez vous
+    .results
+      a.offer(href='#', style='background-image: url(images/offer1.jpg);')
+        p.description Lasagnes boeuf tomates.
+        .price_bar
+          .price 8
+          .currency
+            img(src='images/i_price_w.png')
+          .clear
+        .clear
+      a.offer(href='#', style='background-image: url(images/offer2.jpg);')
+        p.description Cheeseburger maison.
+        .price_bar
+          .price 9
+          .currency
+            img(src='images/i_price_w.png')
+          .clear
+        .clear
+      a.offer(href='#', style='background-image: url(images/offer3.jpg);')
+        p.description Pizza boeuf, piments, olives.
+        .price_bar
+          .price 6
+          .currency
+            img(src='images/i_price_w.png')
+          .clear
+        .clear
+      a.offer(href='#', style='background-image: url(images/offer4.jpg);')
+        p.description Poulet et pommes de terre.
+        .price_bar
+          .price 8,5
+          .currency
+            img(src='images/i_price_w.png')
+          .clear
+        .clear
+    .clear
+    footer
+      .browse
+        h3 BROWSE:
+        a(href='index.html') Accueil
+        a(href='search.html') Recherche
+        a(href='#') Contact
+        a(href='#') Inscription
+        a(href='#') Connexion
+        a(href='#') Mon compte
+      p.copyright Copyright © 2016 NbCooking. All rights reserved.

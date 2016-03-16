@@ -1,0 +1,95 @@
+doctype html
+html
+  head
+    // Set charset
+    meta(charset='utf-8')
+    // Title
+    title NbCooking - Résultats
+    // Import css and fonts
+    link(rel='stylesheet', href='stylesheets/app.css', media='only screen and (max-device-width: 768px)', type='text/css')
+    link(rel='stylesheet', href='stylesheets/app_web.css', media='only screen and (min-device-width: 768px)', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Roboto:400,300', rel='stylesheet', type='text/css')
+    // Import jQuery and javascript
+    script(src='stylesheets/https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+    script(src='stylesheets/app.js')
+    
+    
+    style(type='text/css').
+    
+      input, textarea {
+      font: 1em sans-serif;
+      width: 300px;
+      box-sizing: border-box;
+      border: 1px solid #999;
+      }
+      form {
+      margin: 0 auto;
+      width: 400px;
+      padding: 1em;
+      border: 1px solid #CCC;
+      border-radius: 1em;
+      }
+      form div + div {
+      margin-top: 1em;
+      }
+      input:focus, textarea:focus {
+      /* Afin de rehausser les éléments actifs */
+      border-color: #000;
+      }
+      textarea {
+      vertical-align: top;
+      height: 5em;
+      resize: vertical;
+      }
+      .button {
+      padding-left: 90px;
+      }
+      button {
+      margin-left: .5em;
+      }
+      
+      
+  body
+    header
+      img(src='images/logo.png', alt='NbCookingLogo')
+      a(href='index.html') NbCooking
+    .preview(style='background-image: url(images/offer1.jpg);')
+    br
+    br
+    .formulaireOffre
+      center
+        h2 Ajouter un offre
+      form(action='', method='post')
+        div
+          input#nom(type='text', name='nom', placeholder='Nom du plat')
+        div
+          input#prix(type='text', name='prix', placeholder='Prix')
+        div
+          textarea#ingredient(name='ingredient', placeholder='Ingrédients')
+        br
+        div
+          select(name='jour', size='1')
+            option Lundi
+            option Mardi
+            option Mercredi
+            option Jeudi
+            option Vendredi
+            option Samedi
+            option Dimanche
+        br
+        div
+          input#icone(type='file', name='icone', placeholder='Votre image')
+        .button
+          button(type='submit') Poster l'offre
+    br
+    .clear
+    footer
+      .browse
+        h3 BROWSE:
+        a(href='index.html') Accueil
+        a(href='search.html') Recherche
+        a(href='#') Contact
+        a(href='#') Inscription
+        a(href='#') Connexion
+        a(href='#') Mon compte
+      p.copyright Copyright © 2016 NbCooking. All rights reserved.
