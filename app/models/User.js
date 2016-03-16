@@ -9,6 +9,8 @@ var user = new Schema({
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
     address: {type: String, required: true},
+    latitude: {type: String, required: true},
+    longitude: {type: String, required: true},
     createAt: {type: Date, default: Date.now}
 });   
 
