@@ -28,7 +28,7 @@ var Users = {
                 if(err) throw err;
                 if(user){console.log('Ya!');res.render('users/subscribe');}
                 else{
-                    var urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key=AIzaSyA3_85yypMDvev_jpjiPfpizby7BrFWNDs'
+                    var urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key=APIKEY'
                     request(urlConvert, function(err, result, body){
                         if(err) throw err;
                         var parsedBody = JSON.parse(body);
