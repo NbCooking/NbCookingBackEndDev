@@ -4,7 +4,7 @@ html
     // Set charset
     meta(charset='utf-8')
     // Title
-    title NbCooking - Résultats
+    title NbCooking - Avis
     // Import css and fonts
     link(rel='stylesheet', href='stylesheets/app.css', media='only screen and (max-device-width: 768px)', type='text/css')
     link(rel='stylesheet', href='stylesheets/app_web.css', media='only screen and (min-device-width: 768px)', type='text/css')
@@ -17,46 +17,35 @@ html
       img(src='images/logo.png', alt='NbCookingLogo')
       a(href='index.html') NbCooking
     .preview(style='background-image: url(images/offer1.jpg);')
-    .results_bar
-      .title Résultats près de chez vous
+    br
+    br
     .results
       a.offer(href='#', style='background-image: url(images/offer1.jpg);')
         p.description Lasagnes boeuf tomates.
-        .price_bar
-          .price 8
-          .currency
-            img(src='images/i_price_w.png')
-          .clear
-        .clear
-      a.offer(href='#', style='background-image: url(images/offer2.jpg);')
-        p.description Cheeseburger maison.
-        .price_bar
-          .price 9
-          .currency
-            img(src='images/i_price_w.png')
-          .clear
-        .clear
-      a.offer(href='#', style='background-image: url(images/offer3.jpg);')
-        p.description Pizza boeuf, piments, olives.
-        .price_bar
-          .price 6
-          .currency
-            img(src='images/i_price_w.png')
-          .clear
-        .clear
-      a.offer(href='#', style='background-image: url(images/offer4.jpg);')
-        p.description Poulet et pommes de terre.
-        .price_bar
-          .price 8,5
-          .currency
-            img(src='images/i_price_w.png')
-          .clear
-        .clear
+      div(style='width: auto; height: auto; float: left; margin-top: 10px;')
+        br
+        h3  Notation :
+        img(src='images/star.jpg', width='30px', height='30px')
+        img(src='images/star.jpg', width='30px', height='30px')
+        img(src='images/star.jpg', width='30px', height='30px')
+      div(style='float: left; margin-left: 70px; margin-top: 25px;')
+        h3
+          p Tout les Commentaires : 
+        br
+        p
+          | Ben:   Trop dégeulasse !  
+          br
+          |       Graham: Oh shit men !
+        br
+        p  Commentaire: 
+        textarea(name='textarea', rows='5', cols='30', placeholder='Entrez votre commentaire')
+        br
+        input(type='submit', name='poster', value='Poster')
     .clear
     footer
       .browse
         h3 BROWSE:
-        a(href='index.html') Accueil
+        a(href='/') Accueil
         a(href='search.html') Recherche
         a(href='#') Contact
         a(href='#') Inscription

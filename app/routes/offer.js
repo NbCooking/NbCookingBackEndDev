@@ -4,8 +4,8 @@ var offers = require('../controllers/Offers');
 var comments = require('../controllers/Comments');
 
 /* GET */
-router.get('/:id(\\d+)', offers.getOfferId);
-router.get('/offer', offers.addOffer);
+router.get('/:id', offers.getOfferId);
+router.get('/', offers.addOffer);
 
 /* POST */
 router.post('/', offers.addOfferId);

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var dateFormat = require('dateformat');
 
 
 var user = new Schema({
@@ -12,7 +13,7 @@ var user = new Schema({
     latitude: {type: String, required: true},
     longitude: {type: String, required: true},
     phone: {type: Number, required: false},
-    createAt: {type: Date, default: Date.now}
+    createAt: {type: Date, default: Date()}
 });   
 
 

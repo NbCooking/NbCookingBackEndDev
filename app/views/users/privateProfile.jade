@@ -4,7 +4,7 @@ html
     // Set charset
     meta(charset='utf-8')
     // Title
-    title NbCooking - Offre
+    title NbCooking - Profil
     // Import css and fonts
     link(rel='stylesheet', href='stylesheets/app.css', media='only screen and (max-device-width: 768px)', type='text/css')
     link(rel='stylesheet', href='stylesheets/app_web.css', media='only screen and (min-device-width: 768px)', type='text/css')
@@ -22,23 +22,28 @@ html
     .formulaireOffre
       #formOffer
         center
-          h2 Ajouter un offre
+          h2 Votre Profil
         form(action='', method='post')
+          div(style='border-color: black; ')
+            img(src='')
           div
-            input#nom(type='text', name='nom', placeholder='Nom du plat')
+            label  Prénom : 
+            input#prenom(type='text', name='prenom', value='#{firstname}')
           div
-            input#nom(type='text', name='prix', placeholder='Prix')
+            label  Nom : 
+            input#prenom(type='text', name='lastname', value='#{lastname}')
           div
-            textarea#ingredient(name='ingredient', placeholder='Ingrédients')
+            label  Adresse : 
+            input#prenom(type='text', name='adresse', value='#{adresse}')
+          div
+            label  Numéro Portable : 
+            input#prenom(type='number', name='number', value='#{numberP}')
+          div
+            label  Email : 
+            input#prenom(type='mail', name='mail', value='#{mail}')
           br
-          div
-            input#nom(type='input', name='date', placeholder='Date(2016-03-17)')
-          br
-          div
-            input#icone(type='file', name='icone', placeholder='Votre image')
           .button
-            button(type='submit') Poster l'offre
-    br
+            button(type='submit') Modifier
     .clear
     footer
       .browse

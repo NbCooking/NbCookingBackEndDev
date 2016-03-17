@@ -6,24 +6,25 @@
 }
 
 .clear {
-  clear: both;
+    clear: both;
 }
 
 ::-webkit-input-placeholder {
-   color: rgba(8, 65, 82, 0.90);
+    color: rgba(8, 65, 82, 0.90);
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: rgba(8, 65, 82, 0.90); 
+    color: rgba(8, 65, 82, 0.90);
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: rgba(8, 65, 82, 0.90);
+    color: rgba(8, 65, 82, 0.90);
 }
 
-:-ms-input-placeholder {  
-   color: rgba(8, 65, 82, 0.90); 
+:-ms-input-placeholder {
+    color: rgba(8, 65, 82, 0.90);
 }
+
 
 /* Header */
 header {
@@ -110,135 +111,299 @@ div.firstview {
   background-size: cover;
   position: relative;
 }
-
 div.firstview .search {
-  display: block;
-  
-  position: absolute;
-  
-  height: 200px;
-  width: 500px;
-  
-  margin: 0 auto;
+    display: block;
+    
+    position: absolute;
+    
+    height: 200px;
+    width: 500px;
+    
+    margin: 0 auto;
 }
 
 div.firstview .search input, div.firstview .search button {
-  box-sizing: inherit;
-  
-  height: 80px;
-  width: 100%;
-  
-  margin: 10px 0;
-  
-  border: 2px solid #084152;
+    box-sizing: inherit;
+    
+    height: 80px;
+    width: 100%;
+    
+    margin: 10px 0;
+    
+    border: 2px solid #084152;
 }
 
 div.firstview .search input {
-  background: rgba(255, 255, 255, 0.5);
-  
-  font-family: "Roboto", sans-serif;
-  font-size: 25px;
-  color: #084152;
-  
-  padding: 0 20px;
+    background: rgba(255, 255, 255, 0.5);
+    
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    color: #084152;
+    
+    padding: 0 20px;
 }
 
 div.firstview .search button {
-  background: transparent;
-  
-  font-family: "Roboto", sans-serif;
-  font-size: 30px;
-  color: #084152;
+    background: transparent;
+    
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+    color: #084152;
 }
 
 div.firstview .search button:hover {
-  background-color: #084152;
-  
-  color: #fff;
-  
-  cursor: pointer;
+    background-color: #084152;
+    
+    color: #fff;
+    
+    cursor: pointer;
 }
 
 div.firstview #gonext {
-  display: block;
-  
-  position: absolute;
-  bottom: 0;
-  
-  width: 100%;
+    display: block;
+    
+    position: absolute;
+    bottom: 0;
+    
+    width: 100%;
 }
 
 div.firstview #gonext img {
-  display: block;
-  
-  height: 100px;
-  width: 100px;
-  
-  margin: 0 auto;
+    display: block;
+    
+    height: 100px;
+    width: 100px;
+    
+    margin: 0 auto;
 }
 
 /* Second view of the website */
 div.secondview {
-  display: block;
-  
-  width: 100%;
-  
-  padding: 100px 0;
-  
-  background-color: #f0f0f0;
+    display: block;
+    
+    width: 100%;
+    
+    padding: 100px 0;
+    
+    background-color: #f0f0f0;
 }
 
 div.secondview .boxes {
-  display: block;
-  
-  width: 900px;
-  
-  margin: 0 auto;
+    display: block;
+    
+    width: 900px;
+    
+    margin: 0 auto;
 }
 
 div.secondview .boxes .box {
-  display: inline-block;
-  
-  float: left;
-  
-  height: 250px;
-  width: 250px;
-  
-  margin: 25px;
-  
-  background-color: #e8e8e8;
-  
-  border: solid 1px #084152;
+    display: inline-block;
+    
+    float: left;
+    
+    height: 250px;
+    width: 250px;
+    
+    margin: 25px;
+    
+    background-color: #e8e8e8;
+    
+    border: solid 1px #084152;
 }
 
 div.secondview .boxes .box img {
-  display: block;
-  
-  height: 100px;
-  width: 100px;
-  
-  margin: 0 auto;
+    display: block;
+    
+    height: 100px;
+    width: 100px;
+    
+    margin: 0 auto;
 }
 
 div.secondview .boxes .box .title {
-  margin: 5px auto;
-  
-  font-family: "Roboto", sans-serif;
-  font-size: 35px;
-  color: #084152;
-  
-  text-align: center;
+    margin: 5px auto;
+    
+    font-family: "Roboto", sans-serif;
+    font-size: 35px;
+    color: #084152;
+    
+    text-align: center;
 }
 
 div.secondview .boxes .box .description {
-  margin: 5px;
-  
-  font-family: "Roboto", sans-serif;
-  font-size: 20px;
-  color: #000;
-  
-  text-align: center;
+    margin: 5px;
+    
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    color: #000;
+    
+    text-align: center;
 }
+/* Connexion */
+
+.entete2 {
+    border : 1px solid transparent;
+    background-image: url(../images/offer1.jpg);
+    background-repeat: no-repeat;
+    background-size : 100%;
+    height : 300px;
+    width : 100%;
+}
+
+.contenu1 {
+    border : 1px solid transparent;
+    height : 500px;
+    width  : 100%;
+    text-align: center;
+    
+}
+/* login */
+
+#login-box {
+    width:333px;
+    height: 352px;
+    color: #084152;
+    font: 15px Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: auto;
+}
+
+
+#login-box h2 {
+    padding:0;
+    margin:0;
+    color: #084152;
+    font: bold 44px "Calibri", Arial;
+}
+
+  
+
+
+#loginboxname {
+    float: left;
+    display:inline;
+    width: 101px;
+    margin: 7px 2px 7px 0;
+}
+
+#login-box-field {
+    float: left;
+    display:inline;
+    width:230px;
+    margin:0 0 10px 0;
+
+}
+
+
+.form-login  {
+    width: 205px;
+    padding: 10px 5px 5px 3px;
+    border: 1px solid #0d2c52;
+    background-color:#fff;
+    font-size: 16px;
+    color: #084152;
+
+}
+
+
+.login-box-options  {
+    text-align: left;
+    clear:both;
+    font-size: 11px;
+}
+
+button {
+    background: transparent;
+    width: 30%;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    color: #084152;
+}
+
+button:hover {
+    background-color: #084152;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+
+/* End of login */
+
+.pied {
+    border : 1px solid transparent;
+    width : 100%;
+}
+
+/* Fin Connexion */
+
+/* Inscription */
+.tete2 {
+    border : 1px solid transparent;
+    background-image: url(../images/offer1.jpg);
+    
+    background-repeat: no-repeat;
+    background-size : 100%;
+    height : 300px;
+    width : 100%;
+}
+
+#page {
+    border-width : 1px solid black;
+    height : 550px;
+    width  : 100%;
+    text-align: center;
+    
+    
+    
+}
+
+h1{
+    color:#084152;
+    font-family: "Roboto", sans-serif;
+    font-weight:bold;
+    margin-top : 20px;
+}
+
+
+
+form {
+    padding:10px;
+    width : 60%;
+    margin-left:  auto;
+    margin-right:  auto;
+    margin-top : 25px;
+}
+
+
+div forms input {
+    height: 25px;
+    width: 50%;
+    
+    margin: 5px 0;
+    
+    border: 2px solid #084152;
+}
+
+div.extra button {
+    background: transparent;
+    width: 51%;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    margin : 5px 0;
+    color: #084152;
+}
+
+div.extra button:hover {
+    background-color: #084152;
+    
+    color: #fff;
+    
+    cursor: pointer;
+}
+
+
+/* Fin Inscription */
 
 /* Page recherche */
 div.preview {
@@ -252,146 +417,243 @@ div.preview {
   background-size: cover;
   position: relative;
 }
-
 div.results_bar {
-  display: block;
-  
-  width: 100%;
-  
-  margin: 25px 0;
+    display: block;
+    
+    width: 100%;
+    
+    margin: 25px 0;
 }
 
 div.results_bar .title {
-  font-family: "Roboto", sans-serif;
-  font-size: 30px;
-  color: #084152;
-  
-  margin-left: 25px;
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+    color: #084152;
+
+    margin-left: 25px;
 }
 
 div.results {
-  display: block;
-  
-  width: 900px;
-  
-  margin: 0 auto;  
+    display: block;
+    
+    width: 900px;
+    
+    margin: 0 auto;
 }
 
 div.results .offer {
-  display: inline-block;
-  
-  position: relative;
-  
-  float: left;
-  
-  height: 250px;
-  width: 250px;
-  
-  margin: 25px;
-  
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  
-  text-decoration: none;
+    display: inline-block;
+    
+    position: relative;
+    
+    float: left;
+    
+    height: 250px;
+    width: 250px;
+    
+    margin: 25px;
+    
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    
+    text-decoration: none;
 }
 
 div.results .offer .description {
-  display: block;
-  
-  height: 100px;
-  width: 100%;
-  
-  padding: 5px;
-  
-  font-family: "Roboto", sans-serif;
-  font-size: 25px;
-  color: #fff;
-  
-  text-align: center;
-  
-  text-decoration: none;
-  
-  -webkit-transition: padding-top 0.5s;
-  -moz-transition: padding-top 0.5s;
-  transition: padding-top 0.5s;
+    display: block;
+    
+    height: 100px;
+    width: 100%;
+    
+    padding: 5px;
+    
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    color: #fff;
+    
+    text-align: center;
+    
+    text-decoration: none;
+    
+    -webkit-transition: padding-top 0.5s;
+    -moz-transition: padding-top 0.5s;
+    transition: padding-top 0.5s;
 }
 div.results .offer:hover .description {
-  height: 250px;
-  width: 250px;
-  
-  padding-top: 50px;
-  
-  font-size: 35px;
-  color: #e0e0e0;
-  
-  background-color: rgba(75, 75, 75, 0.50);
-  
-  -webkit-transition: padding-top 0.5s, background-color 0.5s;
-  -moz-transition: padding-top 0.5s, background-color 0.5s;
-  transition: padding-top 0.5s, background-color 0.5s;
+    height: 250px;
+    width: 250px;
+    
+    padding-top: 50px;
+    
+    font-size: 35px;
+    color: #e0e0e0;
+    
+    background-color: rgba(75, 75, 75, 0.50);
+    
+    -webkit-transition: padding-top 0.5s, background-color 0.5s;
+    -moz-transition: padding-top 0.5s, background-color 0.5s;
+    transition: padding-top 0.5s, background-color 0.5s;
 }
 
 div.results .offer .price_bar {
-  display: block;
-  
-  height: 50px;
-  width: 100%;
-  line-height: 50px;
-  
-  margin-top: 100px;
+    display: block;
+    
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    
+    margin-top: 100px;
 }
 div.results .offer:hover .price_bar {
-  opacity: 0;
-  
-  /*-webkit-transition: opacity 0.5s;
-  -moz-transition: opacity 0.5s;
-  transition: opacity 0.5s;*/
+    opacity: 0;
+    
+    /*-webkit-transition: opacity 0.5s;
+     -moz-transition: opacity 0.5s;
+     transition: opacity 0.5s;*/
 }
 
 div.results .offer .price_bar .price {
-  display: inline-block;
-  
-  float: left;
-  
-  height: 50px;
-  width: 70%;
-  line-height: 50px;
-  
-  font-family: "Roboto", sans-serif;
-  font-size: 40px;
-  color: #000;
-  
-  text-align: center;
-  
-  background-color: rgba(255, 255, 255, 0.75);
-  
-  vertical-align: top;
+    display: inline-block;
+    
+    float: left;
+    
+    height: 50px;
+    width: 70%;
+    line-height: 50px;
+    
+    font-family: "Roboto", sans-serif;
+    font-size: 40px;
+    color: #000;
+    
+    text-align: center;
+    
+    background-color: rgba(255, 255, 255, 0.75);
+    
+    vertical-align: top;
 }
 
 div.results .offer .price_bar .currency {
-  display: inline-block;
-  
-  float: left;
-  
-  height: 50px;
-  width: 30%;
-  
-  background-color: rgba(8, 65, 82, 0.75);
-  
-  vertical-align: top;
+    display: inline-block;
+    
+    float: left;
+    
+    height: 50px;
+    width: 30%;
+    
+    background-color: rgba(8, 65, 82, 0.75);
+    
+    vertical-align: top;
 }
 
 div.results .offer .price_bar .currency img {
-  display: block;
-  
-  height: 40px;
-  width: 40px;
-  
-  margin: 5px auto;
+    display: block;
+    
+    height: 40px;
+    width: 40px;
+    
+    margin: 5px auto;
 }
 
+/* Mot de passe */
+.tete {
+    border : 1px solid transparent;
+    background-image: url(../images/offer1.jpg);
+    background-repeat: no-repeat;
+    background-size : 100%;
+    height : 300px;
+    width : 100%;
+}
+#contenu {
+    border-width : 1px solid black;
+    height : 240px;
+    width  : 100%;
+    text-align: center;
+    
+    
+    
+}
+h1{
+    color:#084152;
+    font-family: "Roboto", sans-serif;
+    font-weight:bold;
+}
+
+
+
+form {
+    padding:10px;
+    width : 60%;
+    margin-left:  auto;
+    margin-right:  auto;
+}
+
+
+div form input {
+    height: 25px;
+    width: 50%;
+    
+    margin: 5px 0;
+    
+    border: 2px solid #084152;
+}
+
+
+/* Fin Mot de passe */
+
+.formulaireOffre {
+    text-align: center;
+    
+}
+
+
+#nom {
+    border :  2px solid #084152;
+    height: 25px;
+    width: 25%;
+    margin: 8px 0;
+    font-family: "Roboto", sans-serif;
+    font-size : 12px;
+    
+}
+#ingredient {
+    width: 25%;
+    height : 50px;
+    margin: 8px 0;
+    border: 2px solid #084152;
+    font-family: "Roboto", sans-serif;
+    font-size : 15px;
+}
+.date select {
+    font-size : 20px;
+}
+
+#prenom {
+    border: 2px solid #084152;
+    height: 25px;
+    width: 25%;
+    margin: 8px 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+}
+
+
+.button button {
+    background: transparent;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    margin: 25px 0;
+    color: #084152;
+}
+
+.button button:hover {
+    background-color: #084152;
+    
+    color: #fff;
+    
+    cursor: pointer;
+}
 /* Footer */
 footer {
   display: block;
@@ -405,7 +667,7 @@ footer {
 
 footer .browse {
   display: block;
-  
+  text-align: center;
   margin: 25px auto;
   margin-left: 50px;
 }
@@ -444,4 +706,3 @@ footer .copyright {
   
   text-align: center;
 }
-Status API Training Shop Blog About Pricing

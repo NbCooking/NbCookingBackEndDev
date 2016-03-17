@@ -1,0 +1,58 @@
+doctype html
+html
+  head
+    // Set charset
+    meta(charset='utf-8')
+    // Title
+    title NbCooking - Détails
+    // Import css and fonts
+    link(rel='stylesheet', href='stylesheets/app.css', media='only screen and (max-device-width: 768px)', type='text/css')
+    link(rel='stylesheet', href='stylesheets/app_web.css', media='only screen and (min-device-width: 768px)', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Roboto:400,300', rel='stylesheet', type='text/css')
+    // Import jQuery and javascript
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+    script(src='javascripts/app.js')
+  body
+    header
+      img(src='images/logo.png', alt='NbCookingLogo')
+      a(href='index.html') NbCooking
+    .preview(style='background-image: url(images/offer1.jpg);')
+    br
+    br
+    .results
+      a.offer(href='#', style='background-image: url(images/offer1.jpg);')
+        p.description Lasagnes boeuf tomates.
+      div(style='width: auto; height: auto; float: left; margin-top: 25px;')
+        h3 Ingédient : 
+          p  
+            | - Viande
+            | - Tomate
+            | - Sel
+        br
+        h3  Prix : 
+        p  8€ 
+        br
+        h3  Préparation: 
+        p
+          img(src='images/timer.png', width='30px', height='30px')
+          |          5 min
+      div(style='float: left; margin-left: 70px; margin-top: 25px;')
+        h3  Détails 
+        p
+          | Dans ce plat il y a du piments ! 
+          br
+          |         La Viande est HALAL ! Don't worry Graham !!
+        br
+        br
+        input(type='submit', name='commander', value='Commander')
+    .clear
+    footer
+      .browse
+        h3 BROWSE:
+        a(href='index.html') Accueil
+        a(href='search.html') Recherche
+        a(href='#') Contact
+        a(href='#') Inscription
+        a(href='#') Connexion
+        a(href='#') Mon compte
+      p.copyright Copyright © 2016 NbCooking. All rights reserved.
