@@ -257,6 +257,46 @@ div.secondview .boxes .box .description {
     text-align: center;
     
 }
+
+/* Offers */
+
+.offer {
+	display: block;
+	
+	width: 900px;
+	
+	margin: 0 auto;
+}
+
+.offer h1 {
+	display: block;
+	
+	font-family: "Roboto", sans-serif;
+	font-size: 40px;
+	color: #000;
+}
+
+.offer .cooker {
+	display: block;
+	
+	font-family: "Roboto", sans-serif;
+	font-size: 35px;
+	color: #084152;
+	
+	text-decoration: none;
+}
+.offer .cooker:hover {
+	text-decoration: underline;
+}
+
+.offer .description, .offer .price {
+	display: block;
+	
+	font-family: "Roboto", sans-serif;
+	font-size: 25px;
+	color: #000;
+}
+
 /* login */
 
 #login-box {

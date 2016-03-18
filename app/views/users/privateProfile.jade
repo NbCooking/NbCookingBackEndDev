@@ -1,69 +1,18 @@
-doctype html
-html
-  head
-    // Set charset
-    meta(charset='utf-8')
-    // Title
-    title NbCooking - Profil
-    // Import css and fonts
-    link(rel='stylesheet', href='stylesheets/app.css', media='only screen and (max-device-width: 768px)', type='text/css')
-    link(rel='stylesheet', href='stylesheets/app_web.css', media='only screen and (min-device-width: 768px)', type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Roboto:400,300', rel='stylesheet', type='text/css')
-    // Import jQuery and javascript
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
-    script(src='javascripts/app.js')
-  body
-    header
-      img(src='images/logo.png', alt='NbCookingLogo')
-      a(href='index.html') NbCooking
-    .preview(style='background-image: url(images/offer1.jpg);')
-    br
-    br
-    .formulaireOffre
-      #formOffer
-        center
-          h2 Votre Profil
-        form(action='/profile', method='post')
-          div(style='border-color: black; ')
-            img(src='')
-            div
-                label  Prénom : 
-                input#prenom(type='text', name='firstName', value='#{firstName}')
-            div
-                label  Nom : 
-                input#prenom(type='text', name='lastName', value='#{lastName}')
-            div
-                label  Adresse : 
-                input#prenom(type='text', name='adresse', value='#{address}')
-            div
-                label  Numéro de téléphone : 
-                input#prenom(type='number', name='phone', value='#{phone}')
-            div
-                label  Email : 
-                input#prenom(type='mail', name='email', value='#{email}')
-                br
-            div
-                label  Ancient mot de passe : 
-                input#prenom(type='password', name='oldPassword', value=null)
-                br
-            div
-                label  Nouveau mot de passe : 
-                input#prenom(type='password', name='password')
-                br
-            div
-                label  Confirmation mot de passe : 
-                input#prenom(type='password', name='passwordConfirmation')
-              br
-          .button
-            button(type='submit') Modifier
-    .clear
-    footer
-      .browse
-        h3 BROWSE:
-        a(href='index.html') Accueil
-        a(href='search.html') Recherche
-        a(href='#') Contact
-        a(href='#') Inscription
-        a(href='#') Connexion
-        a(href='#') Mon compte
-      p.copyright Copyright © 2016 NbCooking. All rights reserved.
+extends ../layout
+
+block content
+    .preview
+    form(action='' method='post')
+        h1 Votre profil
+        input(type='text', name='firstName', placeholder='Prénom', value='#{firstName}', required='required')
+        input(type='text', name='lastName', placeholder='Nom', value='#{lastName}', required='required')
+        input(type='text', name='age', placeholder='Âge', value='#{age}', required='required')
+        input(type='text', name='address', placeholder='Adresse (ex : 17 avenue Victor Hugo, Paris)', value='#{address}', required='required')
+        input(type='text', name='phone', placeholder='Numéro de téléphone', value='#{phone}' )
+        input(type='text', name='email', placeholder='Email', value='#{email}', required='required')
+        input(type='password', name='oldPassword', placeholder='Ancien mot de passe', required='required')
+        input(type='password', name='password', placeholder='Nouveau mot de passe')
+        input(type='password', name='passwordConfirmation', placeholder='Confirmation mot de passe')
+        if info                
+            p= info
+        button(type='submit') Modifier

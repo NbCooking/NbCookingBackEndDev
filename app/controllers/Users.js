@@ -30,6 +30,10 @@ var Users = {
             }
         });
     },
+    disconnect: function(req, res){
+        req.session.nbcooking == null;
+        res.redirect('/');
+    },
     
     getProfile: function(req, res) {
         console.log(req.session.nbcooking);
@@ -37,7 +41,7 @@ var Users = {
             res.redirect('/login');
         }else{
             User.findById(req.session.nbcooking, function(err, user){
-                res.render('users/privateProfile', {firstName: user.firstName, lastName: user.lastName, address: user.address, phone: user.phone, email: user.email});
+                res.render('users/privateProfile', {firstName: user.firstName, lastName: user.lastName, address: user.address, phone: user.phone, email: user.email, age: user.age});
             });
         }
         
@@ -46,7 +50,6 @@ var Users = {
     },
     
     updateProfile: function(req, res) {
-        
         
         User.findById(req.session.nbcooking, function(err, user){
             if(err) throw err;
@@ -73,7 +76,9 @@ var Users = {
                         console.log('pass password')
                         user.password = password;
                         req.session = null;
-                    }else{res.redirect('/profile')}
+                    }else{
+                    res.render('users/privateProfile', {firstName: user.firstName, lastName: user.lastName, address: user.address, phone: user.phone, email: user.email, age: user.age, info: 'Mauvais mot de passe'});
+                    }
                 }
                 user.firstName = req.body.firstName;
                 user.lastName = req.body.lastName;
@@ -87,7 +92,10 @@ var Users = {
        
     },
     getProfileId: function(req, res) {
-
+        User.findById(idURl, function(err, user){
+            res.render('users/publicProfile', {firstName: user.firstName})
+        });
+        
     },
     form: function(req, res) {
         if(req.session.nbcooking){res.redirect('/profile')}
@@ -100,8 +108,9 @@ var Users = {
 
         User.findOne({email: req.body.email}, function(err, user){
                 if(err) throw err;
-                if(user){console.log('Ya!');res.render('users/subscribe');}
+                if(user){res.render('users/login');}
                 else{
+                    if(!req.body.firstName || !req.body.lastName || !req.body.age || !req.body.address){res.redirect('/subscribe')}
                     var urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key=AIzaSyAWihThbxq1bdTHT9Aq8IfscN4s_q1o6nw'
                     request(urlConvert, function(err, result, body){
                         if(err) throw err;

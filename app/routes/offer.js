@@ -10,6 +10,6 @@ router.get('/', offers.addOffer);
 /* POST */
 router.post('/', offers.addOfferId);
 
-router.post('/:id(\\d+)', comments.addComment);
+router.post('/:id', comments.addComment);
 
 module.exports = router;

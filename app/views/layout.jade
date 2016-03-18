@@ -1,29 +1,22 @@
 doctype html
 html
-    head
-        meta(charset='utf-8')
-        title= title
-        link(rel='stylesheet', href='stylesheets/app.css', media='only screen and (max-device-width: 768px)', type='text/css')
-        link(rel='stylesheet', href='stylesheets/app_web.css', media='only screen and (min-device-width: 768px)', type='text/css')
-        link(href='https://fonts.googleapis.com/css?family=Roboto:400,300', rel='stylesheet', type='text/css')
-        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
-        script(src='javascripts/app.js')
-    body
-        header
-            img(src='images/logo.png', alt='NbCookingLogo')
-            a(href='index.html') NbCooking
-            .preview(style='background-image: url(images/offer1.jpg);')
-        br
-        br
-        block content
-        br
-        br
-        footer
-            .browse
-            a(href='index.html') Accueil
-            a(href='search.html') Recherche
-            a(href='#') Contact
-            a(href='#') Inscription
-            a(href='#') Connexion
-            a(href='#') Mon compte
-            p.copyright Copyright © 2016 NbCooking. All rights reserved.     
+	head
+		meta(charset='utf-8')
+		title NbCooking > #{title}
+		link(rel='stylesheet', href='/stylesheets/style.css', type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=Roboto:400,300', rel='stylesheet', type='text/css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+		script(src='/javascripts/app.js')
+	body
+		header
+			img(src='/images/logo.png', alt='NbCookingLogo')
+			a(href='/') NbCooking
+		block content
+		footer
+			.browse
+				a(href='/') Accueil
+				a(href='/') Contact
+				a(href='/subscribe') Inscription
+				a(href='/login') Connexion
+				a(href='/profile') Mon compte
+			p.copyright Copyright © 2016 NbCooking. All rights reserved.

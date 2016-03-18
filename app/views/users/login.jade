@@ -1,52 +1,9 @@
-doctype html
-html
-  head
-    // Set charset
-    meta(charset='utf-8')
-    // Title
-    title NbCooking - Connexion
-    // Import css and fonts
-    link(rel='stylesheet', href='stylesheets/form.css', type='text/css')
-  body
-    .tete
-      header
-        img(src='images/logo.png', alt='NbCookingLogo')
-        a(href='index.html') NbCooking
-    .contenu
-      div(style='padding: 90px 0 0 250px;')
-        #login-box
-          h2 Se connecter
-          br
-          br
-          form(action='/login', method='POST')
-              #loginboxname(style='margin-top:20px;') E-mail :
-              #login-box-field(style='margin-top:20px;')
-                input.form-login(type='input', name='email', title='Email', value='', size='30', maxlength='2048')
-              #loginboxname Mot de passe :
-              #login-box-field
-                input.form-login(name='password', type='password', title='Mot de passe', value='', size='30', maxlength='2048')
-              br
-              span.login-box-options
-                input(type='checkbox', name='1', value='1')
-                |  Mémoriser 
-                br
-                a(href='#', style='margin-left:207px;')  Mot de passe oublié ?
-              br
-              br
+extends ../layout
 
-              .extra
-                button(type='submit') Se connecter
-                button(type='submit') Je m'inscris
-            
-            a #{info}
-    .pied
-      footer
-        .browse
-          h3 BROWSE:
-          a(href='index.html') Accueil
-          a(href='search.html') Recherche
-          a(href='#') Contact
-          a(href='#') Inscription
-          a(href='#') Connexion
-          a(href='#') Mon compte
-        p.copyright Copyright © 2016 NbCooking. All rights reserved.
+block content
+	.preview
+	form(action='/login' method='post')
+		h1 Connexion
+		input(type='email', name='email', id='email', placeholder='Email', required='required')
+		input(type='password', name='password', id='password', placeholder='Mot de passe', required='required')
+		button(type='submit') Se connecter

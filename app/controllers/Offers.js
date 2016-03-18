@@ -54,7 +54,7 @@ var Offers = {
                         //console.log(resultDest);
                     };
                     console.log(resultDest);
-                    res.render('offers/offers', {nbDest: nbDest, data: resultDest,});
+                    res.render('offers/offers', {title: 'Résultats', nbDest: nbDest, data: resultDest});
                     
                 });
                 
@@ -65,34 +65,49 @@ var Offers = {
 
 
 
-    getOfferId: function(req, res) {  
+    getOfferId: function(req, res) {
+        console.log('toto');
+        console.log(req.params.id);
+        Offer.findById(req.params.id, function(err, offer){
+            User.findById(offer.cookId, function(err, user){   
+                console.log(offer.cookId);
+                res.render('offers/offer', {title: offer.title,cookerId: offer.cookId, cooker: user.firstName, description: offer.description, price: offer.price, idOffer: offer._id, picture: offer.picture});
+            });
+        });
+        
 
     },
+    
     addOfferId: function(req, res) {
         console.log(req.session.nbcooking);
         
     User.findById(req.session.nbcooking, function(err, user){
-        
+            
           var offerDatas = new Offer ({
                 cookId: req.session.nbcooking,
                 title: req.body.title,
                 description: req.body.description,
                 price: req.body.price,
-                picture: req.body.picture,
                 date: req.body.date,
                 latitude: user.latitude,
                 longitude: user.longitude
             });
+        console.log(offerDatas);
             offerDatas.save(function(err, offer){
                 if(err){throw (err)}
                 //console.log(user);
-                res.render('offers/offer', {data: offer});
+                res.redirect('offers/'+offer._id);
             });
         });    
     },
     
     addOffer: function(req, res){
-        res.render('offers/addOffer');
+        if(!req.session.nbcooking){
+            res.redirect('/login');
+        }else{
+            res.render('offers/addOffer');
+        }
+        
         
     }
 };

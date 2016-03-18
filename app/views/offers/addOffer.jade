@@ -1,52 +1,11 @@
-doctype html
-html
-  head
-    // Set charset
-    meta(charset='utf-8')
-    // Title
-    title NbCooking - Offre
-    // Import css and fonts
-    link(rel='stylesheet', href='stylesheets/app.css', media='only screen and (max-device-width: 768px)', type='text/css')
-    link(rel='stylesheet', href='stylesheets/app_web.css', media='only screen and (min-device-width: 768px)', type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Roboto:400,300', rel='stylesheet', type='text/css')
-    // Import jQuery and javascript
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
-    script(src='javascripts/app.js')
-  body
-    header
-      img(src='images/logo.png', alt='NbCookingLogo')
-      a(href='index.html') NbCooking
-    .preview(style='background-image: url(images/offer1.jpg);')
-    br
-    br
-    .formulaireOffre
-      #formOffer
-        center
-          h2 Ajouter un offre
-        form(action='', method='post')
-          div
-            input#nom(type='text', name='title', placeholder='Nom du plat')
-          div
-            input#nom(type='text', name='price', placeholder='Prix')
-          div
-            textarea#ingredient(name='description', placeholder='Ingrédients')
-          br
-          div
-            input#nom(type='input', name='date', placeholder='Date(2016-03-17)')
-          br
-          div
-            input#icone(type='file', name='icone', placeholder='Votre image')
-          .button
-            button(type='submit') Poster l'offre
-    br
-    .clear
-    footer
-      .browse
-        h3 BROWSE:
-        a(href='index.html') Accueil
-        a(href='search.html') Recherche
-        a(href='#') Contact
-        a(href='#') Inscription
-        a(href='#') Connexion
-        a(href='#') Mon compte
-      p.copyright Copyright © 2016 NbCooking. All rights reserved.
+extends ../layout
+
+block content
+	.preview
+	form(action='' method='post')
+		h1 Ajouter une offre
+		input(type='text', name='title', placeholder='Nom du plat', required='required')
+		input(type='number', name='price', placeholder='Prix', required='required')
+		textarea(name='description', placeholder='Ingrédients', required='required')
+		input(type='text', name='date', placeholder='Date (2016-12-31)', required='required')
+		button(type='submit') Poster l'offre

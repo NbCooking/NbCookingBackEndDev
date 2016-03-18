@@ -22,7 +22,7 @@ html
     .results
         - var i = 0
         while i < nbDest
-            a.offer(href='#', style='background-image: url(images/offer4.jpg);')
+            a.offer(href='/offer/#{data[i]._id}', style='background-image: url(images/offer4.jpg);')
                 p.description #{data[i].title}
                 .price_bar
                   .price #{data[i].price}
@@ -30,7 +30,8 @@ html
                     img(src='images/i_price_w.png')
                   .clear
                 .clear
-            li= i++
+            if i++
+    .clear
     footer
       .browse
         h3 BROWSE:
@@ -41,4 +42,3 @@ html
         a(href='#') Connexion
         a(href='#') Mon compte
       p.copyright Copyright © 2016 NbCooking. All rights reserved.
-

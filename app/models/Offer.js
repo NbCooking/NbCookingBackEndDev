@@ -9,7 +9,7 @@ var offer = new Schema({
   title: {type: String, required: true},
   description: {type: String, required: true},
   price: {type: Number, required: true},
-  picture: {type: String, default: '/public/images/offers/offer.png'},
+  picture: {type: String, default: '/images/offer3.jpg'},
   date: {type: String, required: true},
   latitude: {type: String, required: true},
   longitude: {type: String, required: true},

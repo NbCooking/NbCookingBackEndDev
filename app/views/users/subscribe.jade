@@ -1,42 +1,15 @@
-doctype html
-html
-  head
-    // Set charset
-    meta(charset='utf-8')
-    // Title
-    title NbCooking - Inscription
-    // Import css and fonts
-    link(rel='stylesheet', href='stylesheets/inscription.css', type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Roboto:400,300', rel='stylesheet', type='text/css')
-    // Import jQuery and javascript
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
-    script(src='/javascripts/app.js')
-  body
-    .tete
-      header
-        img(src='images/logo.png', alt='NbCookingLogo')
-        a(href='index.html') NbCooking
-    #contenu
-      h1 Inscription
-      form#form(action='/subscribe', method='POST')
-        input(type='text',name='firstName', placeholder=' Prénom')
-        input(type='text',name='lastName', placeholder=' Nom')
-        input(type='text',name='age', placeholder=' Âge')
-        input(type='text',name='address', placeholder=' Adresse (ex : 17 avenue Victor Hugo, Paris)')
-        input(type='text',name='phone', placeholder=' Numéro de téléphone')
-        input(type='text',name='email', placeholder=' Adresse E-mail')
-        input(type='password',name='password', placeholder=' Mot de passe')
-        input(type='password',name='passwordConfirmation', placeholder=' Confirmer votre mot de passe')
-        .extra
-          button(type='submit') Valider
-          button(type='button', href='/') Annuler
-    .pied
-      footer
-        .browse
-          a(href='index.html') Accueil
-          a(href='search.html') Recherche
-          a(href='#') Contact
-          a(href='#') Inscription
-          a(href='#') Connexion
-          a(href='#') Mon compte
-        p.copyright Copyright © 2016 NbCooking. All rights reserved.
+extends ../layout
+
+block content
+	.preview
+	form(action='/subscribe' method='post')
+		h1 Inscription
+			input(type='text', name='firstName', placeholder=' Prénom', required='required')
+			input(type='text', name='lastName', placeholder=' Nom', required='required')
+			input(type='text', name='age', placeholder=' Âge', required='required')
+			input(type='text', name='address', placeholder=' Adresse (ex : 17 avenue Victor Hugo, Paris)', required='required')
+			input(type='text', name='phone', placeholder=' Numéro de téléphone', required='required')
+			input(type='text', name='email', placeholder=' Adresse E-mail', required='required')
+			input(type='password', name='password', placeholder=' Mot de passe', required='required')
+			input(type='password', name='passwordConfirmation', placeholder=' Confirmer votre mot de passe', required='required')
+			button(type='submit') S'inscrire

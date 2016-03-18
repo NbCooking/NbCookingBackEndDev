@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+    each item in cart
+        a.item(href='/offer/#{cart[item][0]}')
+            .title= cart[item][1]
+            .price= cart[item][2]
+            
+            

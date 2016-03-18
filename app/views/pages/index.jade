@@ -1,67 +1,43 @@
+extends ../layout
 
-
-doctype html
-html
-  head
-    // Set charset
-    link(rel='stylesheet', href='/stylesheets/app_web.css')
-    meta(charset='utf-8')
-    // Title
-    link(href='https://fonts.googleapis.com/css?family=Roboto:400,300', rel='stylesheet', type='text/css')
-    title NbCooking - Homepage
-    // Import jQuery and javascript
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
-    script(src='/javascripts/app.js')
-  body
-    header
-      img(src='/images/logo.png', alt='NbCookingLogo')
-      a(href='/') NbCooking
-    .firstview
-      form(action='/', method='POST')
-        .search
-          input(type='text', placeholder='Entrez votre adresse...',name='address')
-          button(type='submit') Faites votre choix
-      #gonext
-        img(src='/images/arrow.png')
-    .secondview
-      .boxes
-        .box
-          .title Prix
-          img(src='/images/i_price.png')
-          .description
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        .box
-          .title Proximité
-          img(src='/images/i_distance.png')
-          .description
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        .box
-          .title Géolocalisation
-          img(src='/images/i_geolocalisation.png')
-          .description
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        .box
-          .title Contact
-          img(src='/images/i_human.png')
-          .description
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        .box
-          .title Filtres
-          img(src='/images/i_filter.png')
-          .description
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        .box
-          .title Horaires
-          img(src='/images/i_time.png')
-          .description
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        .clear
-    footer
-      .browse
-        h3 BROWSE:
-        a(href='/') Accueil
-        a(href='#') Contact
-        a(href='/subscribe') Inscription
-        a(href='/login') Connexion
-        a(href='/account') Mon compte
-      p.copyright Copyright © 2016 NbCooking. All 
+block content
+	.firstview
+		form(action='/', method='post')
+			.search
+				input(type='text', placeholder='Entrez votre adresse...',name='address')
+				button(type='submit') Faites votre choix
+		#gonext
+			img(src='/images/arrow.png')
+	.secondview
+		.boxes
+			.box
+				.title Prix
+				img(src='/images/i_price.png')
+				.description
+					| Bien manger a bas prix c'est maintenant possible
+			.box
+				.title Proximité
+				img(src='/images/i_distance.png')
+				.description
+					| Un chef se cache peut être dans votre immeuble!
+			.box
+				.title Géolocalisation
+				img(src='/images/i_geolocalisation.png')
+				.description
+					| Tous les meilleurs plats sélectionné dans votre quartier
+			.box
+				.title Contact
+				img(src='/images/i_human.png')
+				.description
+					| Tissez des liens avec vos voisins !
+			.box
+				.title Filtres
+				img(src='/images/i_filter.png')
+				.description
+					| Vous avez des préférences culinaires ? 
+			.box
+				.title Horaires
+				img(src='/images/i_time.png')
+				.description
+					| Pas le temps de cuisiner ? 
+			.clear

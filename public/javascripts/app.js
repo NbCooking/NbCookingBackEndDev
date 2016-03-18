@@ -30,6 +30,23 @@ $( document ).ready(function() {
   
   // Go to second view using #gonext
   $("#gonext").click(function() {
-    $(document).scrollTop($(".secondview").offset().top); 
+    $('html, body').animate({ scrollTop: $('.secondview').offset().top }, 500);
   });
+	
+	// Inputs
+    $('.field-input').focus(function(){
+        $(this).parent().addClass('is-focused has-label');
+    });
+    $('.field-input').each(function(){
+        if($(this).val() != ''){
+            $(this).parent().addClass('has-label');
+        }
+    });
+    $('.field-input').blur(function(){
+        $parent = $(this).parent();
+        if($(this).val() == ''){
+            $parent.removeClass('has-label');
+        }
+        $parent.removeClass('is-focused');
+    });
 });

@@ -1,8 +1,466 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* Simple clearfix */
+*, html, body {
+  box-sizing: border-box;
+		
+  margin: 0;
+  padding: 0;
 }
 
-a {
-  color: #00B7FF;
+html, body {
+	background-color: #f0f0f0;
+}
+
+.clear {
+  clear: both;
+}
+
+
+
+/* Header */
+header {
+  display: block;
+  
+  z-index: 999;
+  
+  position: fixed;
+  top: 25px;
+  
+  width: 100%;
+  
+  text-align: center;
+}
+
+header.band {
+  display: block;
+  
+  z-index: 999;
+  
+  position: fixed;
+  top: 0;
+  
+  height: 75px;
+  width: 100%;
+  line-height: 75px;
+  
+  text-align: left;
+  
+  background-color: #084152;
+  
+  -webkit-transition: background-color 0.5s linear;
+  -moz-transition: background-color 0.5s linear;
+  transition: background-color 0.5s linear;
+}
+
+header img {
+  display: block;
+  
+  width: 200px;
+  
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+header.band img {
+  display: inline-block;
+  
+  height: 45px;
+  width: auto;
+  
+  margin: 15px auto;
+  margin-left: 20px;
+}
+
+header a {  
+  font-family: "Roboto", sans-serif;
+  font-size: 50px;
+  color: #fff;
+  
+  text-align: center;
+  
+  text-decoration: none;
+}
+
+header.band a {
+  display: inline-block;
+  
+  margin-left: 10px;
+  
+  vertical-align: top;
+}
+
+/* Footer */
+footer {
+  display: block;
+	
+	width: 100%;
+  
+  padding: 25px 0;
+	margin-top: 50px;
+  
+  background-color: #084152;
+}
+
+footer .browse {
+  display: block;
+  text-align: center;
+  margin: 25px auto;
+  margin-left: 50px;
+}
+
+footer .browse h3 {
+  display: inline-block;
+  
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  color: #e0e0e0;
+}
+
+footer .browse a {
+  display: inline-block;
+  
+  margin-left: 10px;
+  
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  color: #fff;
+  
+  text-decoration: none;
+}
+footer .browse a:hover {
+  text-decoration: underline;
+}
+
+footer .copyright {
+  display: block;
+  
+  margin: 25px auto;
+  
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #e0e0e0;
+  
+  text-align: center;
+}
+
+/* Preview */
+div.preview {
+  display: block;
+  
+  height: 300px;
+  width: 100%;
+	
+	margin-bottom: 50px;
+  
+	background-image: url(../images/offer1.jpg);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* First view of the website */
+div.firstview {
+  display: block;
+  
+  height: 100%;
+  width: 100%;
+  
+  background-image: url(../images/home.jpg);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+div.firstview .search {
+    display: block;
+    
+    position: absolute;
+    
+    height: 200px;
+    width: 500px;
+    
+    margin: 0 auto;
+}
+
+div.firstview .search input, div.firstview .search button {
+    box-sizing: inherit;
+    
+    height: 80px;
+    width: 100%;
+    
+    margin: 10px 0;
+    
+    border: 2px solid #084152;
+}
+
+div.firstview .search input {
+    background: rgba(255, 255, 255, 0.5);
+    
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    color: #084152;
+    
+    padding: 0 20px;
+}
+
+div.firstview .search button {
+    background: transparent;
+    
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+    color: #084152;
+}
+
+div.firstview .search button:hover {
+    background-color: #084152;
+    
+    color: #fff;
+    
+    cursor: pointer;
+}
+
+div.firstview #gonext {
+    display: block;
+    
+    position: absolute;
+    bottom: 0;
+    
+    width: 100%;
+}
+
+div.firstview #gonext img {
+    display: block;
+    
+    height: 100px;
+    width: 100px;
+    
+    margin: 0 auto;
+}
+
+/* Second view of the website */
+div.secondview {
+    display: block;
+    
+    width: 100%;
+    
+    padding: 100px 0;
+    
+    background-color: #f0f0f0;
+}
+
+div.secondview .boxes {
+    display: block;
+    
+    width: 900px;
+    
+    margin: 0 auto;
+}
+
+div.secondview .boxes .box {
+    display: inline-block;
+    
+    float: left;
+    
+    height: 250px;
+    width: 250px;
+    
+    margin: 25px;
+    
+    background-color: #e8e8e8;
+    
+    border: solid 1px #084152;
+}
+
+div.secondview .boxes .box img {
+    display: block;
+    
+    height: 100px;
+    width: 100px;
+    
+    margin: 0 auto;
+}
+
+div.secondview .boxes .box .title {
+    margin: 5px auto;
+    
+    font-family: "Roboto", sans-serif;
+    font-size: 35px;
+    color: #084152;
+    
+    text-align: center;
+}
+
+div.secondview .boxes .box .description {
+    margin: 5px;
+    
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    color: #000;
+    
+    text-align: center;
+}
+
+/* Forms */
+form {
+	display: block;
+	
+	width: 900px;
+	
+	margin: 0 auto;
+	
+}
+
+form h1 {
+	font-family: "Roboto", sans-serif;
+	font-size: 40px;
+	color: #000;
+}
+
+form input {
+	display: block;
+	
+	height: 50px;
+	width: 100%;
+	line-height: 50px;
+	
+	margin: 15px auto;
+	padding: 0 5px;
+	
+	font-family: "Roboto", sans-serif;
+	font-size: 30px;
+	color: #084152;
+	
+	background-color: #f0f0f0;
+	
+	border: 1px solid #084152;
+}
+
+form textarea {
+	display: block;
+	
+	height: 200px;
+	width: 100%;
+	line-height: 50px;
+	
+	margin: 15px auto;
+	padding: 0 5px;
+	
+	font-family: "Roboto", sans-serif;
+	font-size: 30px;
+	color: #084152;
+	
+	background-color: #f0f0f0;
+	
+	border: 1px solid #084152;
+}
+
+form button {
+	display: block;
+	
+	height: 50px;
+	line-height: 50px;
+	
+	margin-top: 15px;
+	padding: 0 15px;
+	
+	font-family: "Roboto", sans-serif;
+	font-size: 30px;
+	color: #084152;
+	
+	background-color: #fff;
+	
+	border: 1px solid #084152;
+}
+form button:hover {
+	background-color: #084152;
+	color: #fff;
+}
+
+/* Offers */
+.offer {
+	display: block;
+	
+	width: 900px;
+	
+	margin: 0 auto;
+}
+
+.offer img {
+    display: inline-block;
+    
+    width: 500px;
+}
+
+.offer .navbar {
+    display: inline-block;
+    
+    width: 400px;
+    
+    padding: 25px;
+    
+    vertical-align: top;
+}
+
+.offer h1 {
+	display: block;
+	
+    width: 100%;
+    
+    margin: 10px auto;
+    
+	font-family: "Roboto", sans-serif;
+	font-size: 40px;
+	color: #000;
+    
+    text-align: center;
+}
+
+.offer .cooker {
+	display: block;
+    
+    width: 100%;
+    
+    margin: 10px auto;
+	
+	font-family: "Roboto", sans-serif;
+	font-size: 30px;
+	color: #084152;
+    
+    text-align: center;
+	
+	text-decoration: none;
+}
+.offer .cooker:hover {
+	text-decoration: underline;
+}
+
+.offer .description {
+	display: block;
+    
+    width: 100%;
+    
+    margin: 10px auto;
+    padding: 15px;
+	
+	font-family: "Roboto", sans-serif;
+	font-size: 25px;
+	color: #000;
+    
+    text-align: justify;
+    
+    border: 1px solid #084152;
+}
+
+.offer .price {
+	display: block;
+    
+    width: 100%;
+    
+    margin: 10px auto;
+	
+	font-family: "Roboto", sans-serif;
+	font-size: 25px;
+	color: #000;
+    
+    text-align: center;
 }
