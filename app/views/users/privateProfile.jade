@@ -23,25 +23,37 @@ html
       #formOffer
         center
           h2 Votre Profil
-        form(action='', method='post')
+        form(action='/profile', method='post')
           div(style='border-color: black; ')
             img(src='')
-          div
-            label  Prénom : 
-            input#prenom(type='text', name='prenom', value='#{firstname}')
-          div
-            label  Nom : 
-            input#prenom(type='text', name='lastname', value='#{lastname}')
-          div
-            label  Adresse : 
-            input#prenom(type='text', name='adresse', value='#{adresse}')
-          div
-            label  Numéro Portable : 
-            input#prenom(type='number', name='number', value='#{numberP}')
-          div
-            label  Email : 
-            input#prenom(type='mail', name='mail', value='#{mail}')
-          br
+            div
+                label  Prénom : 
+                input#prenom(type='text', name='firstName', value='#{firstName}')
+            div
+                label  Nom : 
+                input#prenom(type='text', name='lastName', value='#{lastName}')
+            div
+                label  Adresse : 
+                input#prenom(type='text', name='adresse', value='#{address}')
+            div
+                label  Numéro de téléphone : 
+                input#prenom(type='number', name='phone', value='#{phone}')
+            div
+                label  Email : 
+                input#prenom(type='mail', name='email', value='#{email}')
+                br
+            div
+                label  Ancient mot de passe : 
+                input#prenom(type='password', name='oldPassword', value=null)
+                br
+            div
+                label  Nouveau mot de passe : 
+                input#prenom(type='password', name='password')
+                br
+            div
+                label  Confirmation mot de passe : 
+                input#prenom(type='password', name='passwordConfirmation')
+              br
           .button
             button(type='submit') Modifier
     .clear

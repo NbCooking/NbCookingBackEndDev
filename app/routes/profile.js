@@ -6,4 +6,6 @@ var users = require('../controllers/Users');
 router.get('/', users.getProfile);
 router.get('/:id(\\d+)', users.getProfileId);
 
+router.post('/', users.updateProfile);
+
 module.exports = router;

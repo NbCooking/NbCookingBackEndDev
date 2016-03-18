@@ -20,39 +20,17 @@ html
     .results_bar
       .title Résultats près de chez vous
     .results
-      a.offer(href='#', style='background-image: url(images/offer1.jpg);')
-        p.description Lasagnes boeuf tomates.
-        .price_bar
-          .price 8
-          .currency
-            img(src='images/i_price_w.png')
-          .clear
-        .clear
-      a.offer(href='#', style='background-image: url(images/offer2.jpg);')
-        p.description Cheeseburger maison.
-        .price_bar
-          .price 9
-          .currency
-            img(src='images/i_price_w.png')
-          .clear
-        .clear
-      a.offer(href='#', style='background-image: url(images/offer3.jpg);')
-        p.description Pizza boeuf, piments, olives.
-        .price_bar
-          .price 6
-          .currency
-            img(src='images/i_price_w.png')
-          .clear
-        .clear
-      a.offer(href='#', style='background-image: url(images/offer4.jpg);')
-        p.description Poulet et pommes de terre.
-        .price_bar
-          .price 8,5
-          .currency
-            img(src='images/i_price_w.png')
-          .clear
-        .clear
-    .clear
+        - var i = 0
+        while i < nbDest
+            a.offer(href='#', style='background-image: url(images/offer4.jpg);')
+                p.description #{data[i].title}
+                .price_bar
+                  .price #{data[i].price}
+                  .currency
+                    img(src='images/i_price_w.png')
+                  .clear
+                .clear
+            li= i++
     footer
       .browse
         h3 BROWSE:
@@ -63,3 +41,4 @@ html
         a(href='#') Connexion
         a(href='#') Mon compte
       p.copyright Copyright © 2016 NbCooking. All rights reserved.
+

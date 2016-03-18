@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
+var dateFormat = require('dateformat');
+var dateNow = dateFormat(Date(), 'yyyy-mm-dd');
 
 
 var offer = new Schema({
@@ -12,7 +13,7 @@ var offer = new Schema({
   date: {type: String, required: true},
   latitude: {type: String, required: true},
   longitude: {type: String, required: true},
-  createAt: {type: Date, default: Date.now}
+  createAt: {type: Date, default: dateNow, require: true}
 });
 
 exports.model = mongoose.model('Offer', offer, 'offers');

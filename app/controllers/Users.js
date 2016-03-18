@@ -1,6 +1,4 @@
 require('../models/User');
-
-
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var request = require('request');
@@ -11,18 +9,22 @@ var session = require('cookie-session');
 
 var Users = {
     getAccount: function(req, res) {
-        res.render('users/login')
+        if(req.session.nbcooking){res.redirect('/profile')}
+        else{res.render('users/login')}
+        
 
     },
     login: function(req, res){
-        console.log(req.body.email);
-        console.log(req.body.password);
+        if(!req.body.password) res.redirect('/login');
         User.findOne({email: req.body.email}, function(err, user){
-            if(hash.verify(req.body.password, user.password)){
+            if(err){
+              throw err;
+            } 
+            if(user && hash.verify(req.body.password, user.password)){
                 //lancer session
                 req.session.nbcooking = user._id;
                 console.log(req.session.nbcooking);
-                res.render('pages/index');
+                res.redirect('/');
             }else{
                 res.render('users/login', {info: 'Mauvais mot de passe ou mauvaise adresse mail'});
             }
@@ -30,13 +32,67 @@ var Users = {
     },
     
     getProfile: function(req, res) {
-
+        console.log(req.session.nbcooking);
+        if(!req.session.nbcooking){
+            res.redirect('/login');
+        }else{
+            User.findById(req.session.nbcooking, function(err, user){
+                res.render('users/privateProfile', {firstName: user.firstName, lastName: user.lastName, address: user.address, phone: user.phone, email: user.email});
+            });
+        }
+        
+        
+        
+    },
+    
+    updateProfile: function(req, res) {
+        
+        
+        User.findById(req.session.nbcooking, function(err, user){
+            if(err) throw err;
+            if(req.body.oldPassword && hash.verify(req.body.oldPassword, user.password)){
+                console.log('pass')
+                if(req.body.address){
+                    console.log('pass address');
+                    var urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key=AIzaSyAWihThbxq1bdTHT9Aq8IfscN4s_q1o6nw'
+                    request(urlConvert, function(err, result, body){
+                        if(err) throw err;
+                        var parsedBody = JSON.parse(body);
+                        lat = parsedBody['results'][0]['geometry']['location']['lat'];
+                        long = parsedBody['results'][0]['geometry']['location']['lng'];
+                        user.address = req.body.address;
+                        user.latitude = lat;
+                        user.longitude = long;
+                    });
+                }
+                if(req.body.password){
+                    console.log(req.body.password);
+                    var password = hash.generate(req.body.password);
+                    console.log(password);
+                    if(hash.verify(req.body.passwordConfirmation, password)){
+                        console.log('pass password')
+                        user.password = password;
+                        req.session = null;
+                    }else{res.redirect('/profile')}
+                }
+                user.firstName = req.body.firstName;
+                user.lastName = req.body.lastName;
+                user.phone = req.body.phone;
+                user.email = req.body.email
+                user.save();
+            }
+            res.redirect('/profile')
+        });
+        
+       
     },
     getProfileId: function(req, res) {
 
     },
     form: function(req, res) {
-      res.render('users/subscribe');
+        if(req.session.nbcooking){res.redirect('/profile')}
+        else{res.render('users/subscribe')}
+      
     },
     
  
@@ -72,10 +128,10 @@ var Users = {
                             var test = User.findOne({_id: userDatas._id}, function(err, data){console.log(data.age);});
                             User.findById(userDatas._id, function(err, user){
                                 if(err) throw err;
-                                res.render('users/subscribed', {user: user.firstName, datas: user});
+                                res.redirect('/profile');
                         
                         });
-                    }else{res.render('users/subscribe');}
+                    }else{res.redirect('/subscribe');}
                 });
             }
             

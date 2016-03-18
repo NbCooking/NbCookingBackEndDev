@@ -6,67 +6,61 @@ var Offer = mongoose.model('Offer');
 var dateFormat = require('dateformat');
 var User = mongoose.model('User');
 var nbDest = 0;
-var listDist = '';
+
 var Offers = {
     
     
     search: function(req, res) {
         
         var dateNow = dateFormat(Date(), 'yyyy-mm-dd');
-        var dateTomorrow = '2016-03-18';
-
         
         urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key=AIzaSyAWihThbxq1bdTHT9Aq8IfscN4s_q1o6nw'
         request(urlConvert, function(err, result, body){
             var parsedBody = JSON.parse(body);
             lat = parsedBody['results'][0]['geometry']['location']['lat'];
             long = parsedBody['results'][0]['geometry']['location']['lng'];
-            
-            
             //latitude: {$gt: lat-0.0068, $lt: lat+0.0068}, longitude:{$gt: long-0.0045, $lt: long+0.0045}
-            Offer.find({latitude: {$gt: lat-0.0068, $lt: lat+0.0068}, longitude:{$gt: long-0.0045, $lt: long+0.0045}, date : dateFormat(Date(), 'yyyy-mm-dd')}, function(err, offer){
+            Offer.find({latitude: {$gt: lat-0.0068, $lt: lat+0.0068}, longitude:{$gt: long-0.0045, $lt: long+0.0045}, date : dateNow}, function(err, offer){
                 if(err) throw err;
                 var offersResult = offer;
-                console.log(offersResult);
-                });
-            
-            console.log(lat+','+long);
-            //console.log(offer);
-            });
-
-        
-          
-            /*User.find({}, function(err, user){
                 var destination = '';
                 var nb = 0;
-                user.forEach(function(entry){
-                    var test = entry;
-                    destination += test['latitude']+','+entry['longitude']+'|';
+                offersResult.forEach(function(entry){
+                    destination += entry['latitude']+','+entry['longitude']+'|';
                     nb += 1;
                 });
-                destination = destination.slice(0,-1);
                 nbDest = nb;
-                console.log(nbDest);
-                var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=' +lat+','+long+'&destinations='+destination+'&key=AIzaSyAWihThbxq1bdTHT9Aq8IfscN4s_q1o6nw';
-                //console.log(url);
+                var destinations = destination.slice(0,-1);
+                console.log(destinations);
+                var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=' +lat+','+long+'&destinations='+destinations+'&key=AIzaSyAWihThbxq1bdTHT9Aq8IfscN4s_q1o6nw'
                 request(url, function(err, result, body){
-                    //console.log(body);
-                    var parsedBody = JSON.parse(body);
-
-                    //console.log(parsedBody);
-                    var list = '';
+                    var parsedBody =JSON.parse(body);
+                    var resultDest = [];
                     for(var i=0; i<nbDest; i++){
-                        list += parsedBody['rows'][0]['elements'][i]['distance']['value']+',';
+                            resultDest.push({
+                            picture: offersResult[i].picture,
+                            createAt: offersResult[i].createAt,
+                            __v: offersResult[i].__v,
+                            longitude: offersResult[i].longitude,
+                            latitude: offersResult[i].latitude,
+                            distance: parsedBody['rows'][0]['elements'][i]['distance']['value'],
+                            date: offersResult[i].date,
+                            price: offersResult[i].price,
+                            description: offersResult[i].description,
+                            title: offersResult[i].title,
+                            cookId: offersResult[i].cookId,
+                            _id: offersResult[i]._id
+                        });
+                        //console.log(resultDest);
                     };
-                    listDist = list.slice(0,-1);
-                    //var distance = parsedBody['rows'][0]['elements'][0]['distance']['value'];
-                    res.render('offers/offers', {title: 'Offers', test: listDist});
-                    });
+                    console.log(resultDest);
+                    res.render('offers/offers', {nbDest: nbDest, data: resultDest,});
+                    
+                });
+                
             });
-      });*/
-
-
-
+            
+        });
     },
 
 
