@@ -12,7 +12,7 @@ var user = new Schema({
     address: {type: String, required: true},
     latitude: {type: String, required: true},
     longitude: {type: String, required: true},
-    phone: {type: Number, required: false},
+    phone: {type: String, required: false},
     createAt: {type: Date, default: Date()}
 });   
 

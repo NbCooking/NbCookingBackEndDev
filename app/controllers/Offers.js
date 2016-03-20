@@ -14,7 +14,7 @@ var Offers = {
         
         var dateNow = dateFormat(Date(), 'yyyy-mm-dd');
         
-        urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key=AIzaSyAWihThbxq1bdTHT9Aq8IfscN4s_q1o6nw'
+        urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key=AIzaSyAzXszQowEDAV4w7BIbpPHmbO0WYE8tQrY'
         request(urlConvert, function(err, result, body){
             var parsedBody = JSON.parse(body);
             lat = parsedBody['results'][0]['geometry']['location']['lat'];
@@ -32,7 +32,7 @@ var Offers = {
                 nbDest = nb;
                 var destinations = destination.slice(0,-1);
                 console.log(destinations);
-                var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=' +lat+','+long+'&destinations='+destinations+'&key=AIzaSyAWihThbxq1bdTHT9Aq8IfscN4s_q1o6nw'
+                var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=' +lat+','+long+'&destinations='+destinations+'&key=AIzaSyAzXszQowEDAV4w7BIbpPHmbO0WYE8tQrY'
                 request(url, function(err, result, body){
                     var parsedBody =JSON.parse(body);
                     var resultDest = [];
@@ -71,7 +71,7 @@ var Offers = {
         Offer.findById(req.params.id, function(err, offer){
             User.findById(offer.cookId, function(err, user){   
                 console.log(offer.cookId);
-                res.render('offers/offer', {title: offer.title,cookerId: offer.cookId, cooker: user.firstName, description: offer.description, price: offer.price, idOffer: offer._id, picture: offer.picture});
+                res.render('offers/offer', {title: offer.title,cookerId: offer.cookId, cooker: user.firstName, description: offer.description, price: offer.price, idOffer: offer._id, picture: offer.picture, connected: req.session.nbcooking});
             });
         });
         
@@ -96,7 +96,7 @@ var Offers = {
             offerDatas.save(function(err, offer){
                 if(err){throw (err)}
                 //console.log(user);
-                res.redirect('offers/'+offer._id);
+                res.redirect('offer/'+offer._id);
             });
         });    
     },
@@ -105,7 +105,7 @@ var Offers = {
         if(!req.session.nbcooking){
             res.redirect('/login');
         }else{
-            res.render('offers/addOffer');
+            res.render('offers/addOffer', {connected: req.session.nbcooking});
         }
         
         

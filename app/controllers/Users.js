@@ -30,8 +30,9 @@ var Users = {
             }
         });
     },
+    
     disconnect: function(req, res){
-        req.session.nbcooking == null;
+        req.session = null;
         res.redirect('/');
     },
     
@@ -41,7 +42,8 @@ var Users = {
             res.redirect('/login');
         }else{
             User.findById(req.session.nbcooking, function(err, user){
-                res.render('users/privateProfile', {firstName: user.firstName, lastName: user.lastName, address: user.address, phone: user.phone, email: user.email, age: user.age});
+                console.log(user.address);
+                res.render('users/privateProfile', {firstName: user.firstName, lastName: user.lastName, address: user.address, phone: user.phone, email: user.email, age: user.age, connected: req.session.nbcooking});
             });
         }
         
@@ -54,10 +56,8 @@ var Users = {
         User.findById(req.session.nbcooking, function(err, user){
             if(err) throw err;
             if(req.body.oldPassword && hash.verify(req.body.oldPassword, user.password)){
-                console.log('pass')
                 if(req.body.address){
-                    console.log('pass address');
-                    var urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key=AIzaSyAWihThbxq1bdTHT9Aq8IfscN4s_q1o6nw'
+                    var urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key=AIzaSyAzXszQowEDAV4w7BIbpPHmbO0WYE8tQrY'
                     request(urlConvert, function(err, result, body){
                         if(err) throw err;
                         var parsedBody = JSON.parse(body);
@@ -66,34 +66,35 @@ var Users = {
                         user.address = req.body.address;
                         user.latitude = lat;
                         user.longitude = long;
+                        user.save();
                     });
                 }
                 if(req.body.password){
-                    console.log(req.body.password);
                     var password = hash.generate(req.body.password);
-                    console.log(password);
-                    if(hash.verify(req.body.passwordConfirmation, password)){
-                        console.log('pass password')
+                    if(req.body.password.length > 5 && hash.verify(req.body.passwordConfirmation, password)){
                         user.password = password;
                         req.session = null;
+                        user.save();
                     }else{
-                    res.render('users/privateProfile', {firstName: user.firstName, lastName: user.lastName, address: user.address, phone: user.phone, email: user.email, age: user.age, info: 'Mauvais mot de passe'});
+                    res.render('users/privateProfile', {firstName: user.firstName, lastName: user.lastName, address: user.address, phone: user.phone, email: user.email, age: user.age, info: 'Mauvais mot de passe', connected: req.session.nbcooking});
                     }
                 }
                 user.firstName = req.body.firstName;
                 user.lastName = req.body.lastName;
                 user.phone = req.body.phone;
-                user.email = req.body.email
+                user.email = req.body.email;
                 user.save();
             }
-            res.redirect('/profile')
+            user.save();
+            res.redirect('/profile');
+            
         });
         
        
     },
     getProfileId: function(req, res) {
         User.findById(idURl, function(err, user){
-            res.render('users/publicProfile', {firstName: user.firstName})
+            res.render('users/publicProfile', {firstName: user.firstName, connected: req.session.nbcooking})
         });
         
     },
@@ -111,14 +112,14 @@ var Users = {
                 if(user){res.render('users/login');}
                 else{
                     if(!req.body.firstName || !req.body.lastName || !req.body.age || !req.body.address){res.redirect('/subscribe')}
-                    var urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key=AIzaSyAWihThbxq1bdTHT9Aq8IfscN4s_q1o6nw'
+                    var urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key=AIzaSyAzXszQowEDAV4w7BIbpPHmbO0WYE8tQrY'
                     request(urlConvert, function(err, result, body){
                         if(err) throw err;
                         var parsedBody = JSON.parse(body);
                         lat = parsedBody['results'][0]['geometry']['location']['lat'];
                         long = parsedBody['results'][0]['geometry']['location']['lng'];
                         var password = hash.generate(req.body.password);
-                        if (hash.verify(req.body.passwordConfirmation, password)){
+                        if (req.body.password.length > 5 && hash.verify(req.body.passwordConfirmation, password)){
                             var userDatas = new User ({
                                 email: req.body.email,
                                 password: password,
@@ -127,7 +128,8 @@ var Users = {
                                 lastName: req.body.lastName,
                                 address: req.body.address,
                                 latitude: lat,
-                                longitude: long
+                                longitude: long,
+                                phone: req.body.phone
                             });
                         
                             userDatas.save(function(err, user){

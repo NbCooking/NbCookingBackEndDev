@@ -2,7 +2,7 @@ extends ../layout
 
 block content
     .preview
-    form(action='' method='post')
+    form(action='/profile' method='post')
         h1 Votre profil
         input(type='text', name='firstName', placeholder='Prénom', value='#{firstName}', required='required')
         input(type='text', name='lastName', placeholder='Nom', value='#{lastName}', required='required')

@@ -8,7 +8,7 @@ var Orders = {
   getCart: function(req, res) {
       
     if(!req.session.nbcooking){res.redirect('/login');}
-    if(req.session.cart == null){res.redirect('/');}
+    if(req.session.cart = null){res.redirect('/');}
     var cart = [];
 		var promises = []; 
 		
@@ -23,7 +23,7 @@ var Orders = {
 		});
 		
 		Promise.all(promises).then(function(tt){
-			res.render('orders/cart', {title: 'Panier', cart: cart})
+			res.render('orders/cart', {title: 'Panier', cart: cart, connected: req.session.nbcooking})
 		});
   },
 	payCart: function(req, res) {

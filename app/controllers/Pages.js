@@ -1,6 +1,6 @@
 var Pages = {
   home: function(req, res) {
-    res.render('pages/index');
+    res.render('pages/index', {connected: req.session.nbcooking});
   },
   about: function(req, res) {
     res.render('pages/index', {title: 'About'});

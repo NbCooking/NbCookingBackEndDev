@@ -24,26 +24,22 @@ header {
   
   position: fixed;
   top: 25px;
-  
+
   width: 100%;
-  
+  transition: all 0.3s, background none;
   text-align: center;
 }
 
 header.band {
   display: block;
-  
+  opacity: 0.7;
   z-index: 999;
-  
   position: fixed;
   top: 0;
-  
   height: 75px;
   width: 100%;
   line-height: 75px;
-  
   text-align: left;
-  
   background-color: #084152;
   
   -webkit-transition: background-color 0.5s linear;
@@ -58,14 +54,15 @@ header img {
   
   margin: 0 auto;
   margin-top: 15px;
+  transition: all 0.3s;
+
 }
 
 header.band img {
   display: inline-block;
-  
   height: 45px;
   width: auto;
-  
+  transition: all 0.5s;
   margin: 15px auto;
   margin-left: 20px;
 }
@@ -74,18 +71,50 @@ header a {
   font-family: "Roboto", sans-serif;
   font-size: 50px;
   color: #fff;
-  
   text-align: center;
-  
   text-decoration: none;
 }
 
 header.band a {
   display: inline-block;
-  
   margin-left: 10px;
-  
   vertical-align: top;
+}
+
+header .links {
+    visibility: hidden;
+}
+
+header.band .links {
+    visibility: visible;
+    height: 75px;
+    width: auto;
+    margin-left: 30%;
+    margin-top: -120px;
+    text-align: right;
+
+}
+
+header.band .links a {
+    background: transparent;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    color: #fff;
+    margin-top: 23px;
+    margin-right: 20px;
+    height: 75%;
+    width: 18%;
+    line-height: 50px;
+    transition: background 0.3s;
+}
+
+
+
+header.band .links a:hover {
+    background-color: #fff;
+    color: #084152;
+    cursor: pointer;
+	transition: background 0.3s;
 }
 
 /* Footer */
@@ -123,11 +152,13 @@ footer .browse a {
   font-family: "Roboto", sans-serif;
   font-size: 20px;
   color: #fff;
-  
+  border-bottom: solid 2px #084152;
+  transition: all 0.3s;
   text-decoration: none;
 }
 footer .browse a:hover {
-  text-decoration: underline;
+	transition: text 0.3s;
+	border-bottom: solid 2px #f0f0f0;
 }
 
 footer .copyright {
@@ -138,7 +169,6 @@ footer .copyright {
   font-family: "Roboto", sans-serif;
   font-size: 15px;
   color: #e0e0e0;
-  
   text-align: center;
 }
 
@@ -151,7 +181,7 @@ div.preview {
 	
 	margin-bottom: 50px;
   
-	background-image: url(../images/offer1.jpg);
+  background-image: url(../images/offer1.jpg);
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -184,36 +214,42 @@ div.firstview .search {
 
 div.firstview .search input, div.firstview .search button {
     box-sizing: inherit;
-    
+    border: 5px;
     height: 80px;
-    width: 100%;
-    
     margin: 10px 0;
-    
-    border: 2px solid #084152;
+	border: 2px solid #084152;
 }
 
 div.firstview .search input {
-    background: rgba(255, 255, 255, 0.5);
-    
+    background: rgba(255, 255, 255, 0.2);
     font-family: "Roboto", sans-serif;
     font-size: 25px;
     color: #084152;
-    
+	transition: all 0.3s;
     padding: 0 20px;
+}
+div.firstview .search input:focus {
+    box-shadow: 0 0 5px 1px #007a9f;
+	transition: all 0.3s;
+}
+div.firstview .search input:hover {
+    box-shadow: 0 0 5px 1px #007a9f;
+	transition: all 0.3s;
 }
 
 div.firstview .search button {
     background: transparent;
-    
+    width: 100%;
+	border: 2px solid #084152;
     font-family: "Roboto", sans-serif;
     font-size: 30px;
-    color: #084152;
+	transition: background 0.3s;
 }
 
 div.firstview .search button:hover {
     background-color: #084152;
-    
+    transition: background 0.3s;
+	box-shadow: 0 0 5px 1px #007a9f;
     color: #fff;
     
     cursor: pointer;
@@ -267,8 +303,12 @@ div.secondview .boxes .box {
     margin: 25px;
     
     background-color: #e8e8e8;
-    
+    transition: all 0.3s;
     border: solid 1px #084152;
+}
+div.secondview .boxes .box:hover {
+	box-shadow: 0 0 5px 1px #084152;
+	transition: all 0.3s;
 }
 
 div.secondview .boxes .box img {
@@ -303,7 +343,6 @@ div.secondview .boxes .box .description {
 /* Forms */
 form {
 	display: block;
-	
 	width: 900px;
 	
 	margin: 0 auto;
@@ -331,8 +370,19 @@ form input {
 	color: #084152;
 	
 	background-color: #f0f0f0;
-	
-	border: 1px solid #084152;
+	border: none;
+  	border-bottom: solid 2px #c9c9c9;
+  	transition: border 0.3s;
+}
+form input:focus {
+	border: none;
+  	border-bottom: solid 2px #007a9f;
+	transition: border 0.3s;
+}
+form input:hover {
+	border: none;
+  	border-bottom: solid 2px #007a9f;
+	transition: border 0.3s;
 }
 
 form textarea {
@@ -366,14 +416,15 @@ form button {
 	font-family: "Roboto", sans-serif;
 	font-size: 30px;
 	color: #084152;
-	
+	cursor: pointer;
 	background-color: #fff;
-	
+	transition: background 0.3s;
 	border: 1px solid #084152;
 }
 form button:hover {
 	background-color: #084152;
 	color: #fff;
+	transition: background 0.3s;
 }
 
 /* Offers */
