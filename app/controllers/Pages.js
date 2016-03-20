@@ -1,5 +1,6 @@
 var Pages = {
   home: function(req, res) {
+    console.log(process.env.APIGOOGLE);
     res.render('pages/index', {connected: req.session.nbcooking});
   },
   about: function(req, res) {

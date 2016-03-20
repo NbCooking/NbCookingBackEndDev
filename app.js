@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({secret: 'Un PasswOrd 2 M4lad3!@', cookie: { maxAge: 60 * 60 * 1000 }}));
+app.use(session({secret: process.env.SECRET , cookie: { maxAge: 60 * 60 * 1000 }}));
 
 
 app.use('/', routes);

@@ -14,7 +14,7 @@ var Offers = {
         
         var dateNow = dateFormat(Date(), 'yyyy-mm-dd');
         
-        urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key=AIzaSyAzXszQowEDAV4w7BIbpPHmbO0WYE8tQrY'
+        urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key='+process.env.APIGOOGLE
         request(urlConvert, function(err, result, body){
             var parsedBody = JSON.parse(body);
             lat = parsedBody['results'][0]['geometry']['location']['lat'];
@@ -32,7 +32,7 @@ var Offers = {
                 nbDest = nb;
                 var destinations = destination.slice(0,-1);
                 console.log(destinations);
-                var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=' +lat+','+long+'&destinations='+destinations+'&key=AIzaSyAzXszQowEDAV4w7BIbpPHmbO0WYE8tQrY'
+                var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=' +lat+','+long+'&destinations='+destinations+'&key='+process.env.APIGOOGLE
                 request(url, function(err, result, body){
                     var parsedBody =JSON.parse(body);
                     var resultDest = [];

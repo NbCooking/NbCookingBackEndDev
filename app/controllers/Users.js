@@ -57,7 +57,7 @@ var Users = {
             if(err) throw err;
             if(req.body.oldPassword && hash.verify(req.body.oldPassword, user.password)){
                 if(req.body.address){
-                    var urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key=AIzaSyAzXszQowEDAV4w7BIbpPHmbO0WYE8tQrY'
+                    var urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key='+process.env.APIGOOGLE
                     request(urlConvert, function(err, result, body){
                         if(err) throw err;
                         var parsedBody = JSON.parse(body);
@@ -112,7 +112,7 @@ var Users = {
                 if(user){res.render('users/login');}
                 else{
                     if(!req.body.firstName || !req.body.lastName || !req.body.age || !req.body.address){res.redirect('/subscribe')}
-                    var urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key=AIzaSyAzXszQowEDAV4w7BIbpPHmbO0WYE8tQrY'
+                    var urlConvert = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.address + '+France&key='+process.env.APIGOOGLE
                     request(urlConvert, function(err, result, body){
                         if(err) throw err;
                         var parsedBody = JSON.parse(body);
