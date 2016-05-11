@@ -1,7 +1,7 @@
 # NbCooking
 
 ## Test version
-An online version is available on [this link](http://nbcooking.noip.me).
+An online version is available on [this link](http://victorgabou.fr/nbc).
 
 ## Description
 The project is to create a neighborhood matchmaking platform of ponctual assistance needs.
